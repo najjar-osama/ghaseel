@@ -4,7 +4,7 @@
 /node_modules
 
 # styling
-src/**/*.css
+/src/**/*.css
 
 # testing
 /coverage
