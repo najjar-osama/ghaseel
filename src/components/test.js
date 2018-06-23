@@ -1,3 +1,3 @@
 import React from "react";
 
-export default () => <div>hellow</div>;
+export default id => <div>Hello {id}</div>;

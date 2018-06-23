@@ -17,7 +17,9 @@ setTimeout(() => {
 
 const App = () => (
   <Provider store={store}>
-    <h1>Ghaseel App!</h1>
+    <div className="main">
+      <h1>Ghaseel App!</h1>
+    </div>
   </Provider>
 );
 
