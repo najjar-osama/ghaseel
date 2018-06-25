@@ -17,8 +17,8 @@ console.warn(
   "Add your .env.* files to .gitignore as these files are not added by default, in this boilerplate"
 );
 database()
-  .ref()
-  .set()
+  .ref("HEALTH_CHECK")
+  .set({ env: "PROD" })
   .then(() => {
     console.log("success");
   })
