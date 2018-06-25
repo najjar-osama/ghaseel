@@ -17,11 +17,13 @@ console.warn(
   "Add your .env.* files to .gitignore as these files are not added by default, in this boilerplate"
 );
 database()
-  .ref()
-  .set({ name: "PROD" })
-  .then(() => {
-    console.log("Success");
+  .ref("test-read")
+  .set(toBeRead)
+  .then(() => {})
+  .catch(error => {
+    fail(error.message);
   });
+done();
 const store = configureStore();
 
 ReactDOM.render(
