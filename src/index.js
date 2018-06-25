@@ -25,7 +25,6 @@ database()
   .catch(error => {
     console.log(error);
   });
-done();
 const store = configureStore();
 
 ReactDOM.render(
