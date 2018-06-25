@@ -5,6 +5,8 @@ import configureStore from "./store/configureStore";
 //import AppRouter from "../src/router/AppRouter";
 import App from "../src/App";
 
+import { database } from "./firebase/firebase";
+
 import "normalize.css";
 import "./styles/styles.css";
 import registerServiceWorker from "./registerServiceWorker";
@@ -14,7 +16,12 @@ console.log(`I am now running in ${process.env.REACT_APP_SECRET_CODE}`);
 console.warn(
   "Add your .env.* files to .gitignore as these files are not added by default, in this boilerplate"
 );
-
+database()
+  .ref()
+  .set({ name: "PROD" })
+  .then(() => {
+    console.log("Success");
+  });
 const store = configureStore();
 
 ReactDOM.render(
