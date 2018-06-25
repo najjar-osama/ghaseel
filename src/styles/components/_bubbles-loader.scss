@@ -1,0 +1,23 @@
+.pulse {
+  animation-duration: 1s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  form {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  25% {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 0.8;
+  }
+}

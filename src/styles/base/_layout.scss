@@ -1,0 +1,15 @@
+.flex {
+  display: flex;
+}
+
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-dir--col {
+  flex-flow: column;
+}
+.main-container {
+  min-height: 100vh;
+}

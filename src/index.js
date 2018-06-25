@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 //import AppRouter from "../src/router/AppRouter";
 import App from "../src/App";
+import BubblesLoader from "../src/components/BubblesLoader";
 
 import { database } from "./firebase/firebase";
 
@@ -25,13 +26,19 @@ database()
   .catch(error => {
     console.log(error);
   });
-const store = configureStore();
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-    {/* <AppRouter />*/}
-  </Provider>,
-  document.getElementById("root")
-);
+const store = configureStore();
+console.log(process.env.REACT_APP_LOADER_TIME);
+
+ReactDOM.render(<BubblesLoader />, document.getElementById("root"));
+setTimeout(() => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+      {/*<AppRouter />*/}
+    </Provider>,
+    document.getElementById("root")
+  );
+}, 4000);
+
 registerServiceWorker();
