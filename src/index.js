@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-import AppRouter from "../src/router/AppRouter";
+//import AppRouter from "../src/router/AppRouter";
+import App from "../src/App";
 
 import "normalize.css";
 import "./styles/styles.css";
@@ -18,7 +19,8 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppRouter />
+    <App />
+    {/* <AppRouter />*/}
   </Provider>,
   document.getElementById("root")
 );
