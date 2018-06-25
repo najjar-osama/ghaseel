@@ -28,7 +28,6 @@ database()
   });
 
 const store = configureStore();
-console.log(process.env.REACT_APP_LOADER_TIME);
 
 ReactDOM.render(<BubblesLoader />, document.getElementById("root"));
 setTimeout(() => {
@@ -39,6 +38,6 @@ setTimeout(() => {
     </Provider>,
     document.getElementById("root")
   );
-}, 4000);
+}, parseInt(process.env.REACT_APP_LOADER_TIME, 10));
 
 registerServiceWorker();
