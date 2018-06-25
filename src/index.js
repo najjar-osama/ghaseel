@@ -17,11 +17,13 @@ console.warn(
   "Add your .env.* files to .gitignore as these files are not added by default, in this boilerplate"
 );
 database()
-  .ref("test-read")
-  .set(toBeRead)
-  .then(() => {})
+  .ref()
+  .set()
+  .then(() => {
+    console.log("success");
+  })
   .catch(error => {
-    fail(error.message);
+    console.log(error);
   });
 done();
 const store = configureStore();
