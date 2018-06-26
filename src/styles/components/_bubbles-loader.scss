@@ -1,3 +1,8 @@
+.bubbles-loader-img {
+  width: 150px;
+  height: auto;
+}
+
 .pulse {
   animation-duration: 1s;
   animation-name: pulse;
@@ -6,18 +11,9 @@
 
 @keyframes pulse {
   form {
-    opacity: 1;
-  }
-  75% {
-    opacity: 0.95;
-  }
-  50% {
-    opacity: 0.9;
-  }
-  25% {
-    opacity: 0.85;
+    color: #444;
   }
   to {
-    opacity: 0.8;
+    color: #555;
   }
 }

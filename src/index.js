@@ -34,7 +34,7 @@ setTimeout(() => {
   ReactDOM.render(
     <Provider store={store}>
       <App />
-      {/*<AppRouter />*/}
+      {/* <AppRouter /> */}
     </Provider>,
     document.getElementById("root")
   );
