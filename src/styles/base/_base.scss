@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
+* {
+  box-sizing: border-box;
+}
+html {
+  color: $black;
+  font-size: 62.5%;
+}
 body {
   font-family: "Ubuntu", monospace, sans-serif;
 }

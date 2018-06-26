@@ -10,6 +10,7 @@ import { database } from "./firebase/firebase";
 
 import "normalize.css";
 import "./styles/styles.css";
+
 import registerServiceWorker from "./registerServiceWorker";
 
 //please not that REACT_APP* prefix is madnatory otherwise the env vraibale will be ignored.

@@ -1,19 +1,8 @@
 .main {
   align-items: center;
-  background: #9cecfb; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #0052d4,
-    #65c7f7,
-    #9cecfb
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #0052d4,
-    #65c7f7,
-    #9cecfb
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: url("../bubbles_cover.gif");
+  //background-size: cover;
+  opacity: 0.15;
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -21,13 +10,20 @@
   width: 100%;
 }
 
+.app-cover {
+  background-image: url("../bubbles_cover.gif");
+}
+
+.opacity-effect {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .title {
-  color: #fff;
   display: block;
   font-size: 50px;
+  z-index: 100;
 }
 .subtitle {
-  color: #fff;
   display: block;
   font-size: 40px;
 }
