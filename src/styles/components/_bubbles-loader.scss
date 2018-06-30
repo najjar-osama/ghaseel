@@ -1,6 +1,18 @@
 .bubbles-loader-img {
-  width: 150px;
+  width: 7.5rem;
   height: auto;
+  @media (min-device-width: $sm) {
+    // screens < 720px ( sm )
+    width: 7.5rem;
+  }
+  @media (min-device-width: $md) {
+    // screens < 1440px ( md )
+    width: 15rem;
+  }
+  @media (min-device-width: $lg) {
+    // screens >= 1440px ( lg )
+    width: 15rem;
+  }
 }
 
 .pulse {
