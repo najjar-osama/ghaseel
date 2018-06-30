@@ -5,6 +5,7 @@ import configureStore from "./store/configureStore";
 //import AppRouter from "../src/router/AppRouter";
 import App from "../src/App";
 import BubblesLoader from "../src/components/BubblesLoader";
+import PlayGround from "../src/components/PlayGround";
 
 import { database } from "./firebase/firebase";
 
@@ -29,7 +30,6 @@ database()
   });
 
 const store = configureStore();
-
 ReactDOM.render(<BubblesLoader />, document.getElementById("root"));
 setTimeout(() => {
   ReactDOM.render(

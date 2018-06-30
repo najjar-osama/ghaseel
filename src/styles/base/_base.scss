@@ -4,8 +4,23 @@
 }
 html {
   color: $black;
-  font-size: 62.5%;
+  //font-size: 62.5%;
 }
 body {
   font-family: "Ubuntu", monospace, sans-serif;
 }
+
+/*** Responsive SCSS/CSS Template Rules ***/
+/* 
+.YOUR_CLASS_NAME{
+  // screens < 480px ( xs )
+  @media (min-device-width: $sm) {
+    // screens < 720px ( sm ) 
+  }
+  @media (min-device-width: $md) {
+    // screens < 1440px ( md ) 
+  }
+  @media (min-device-width: $lg) {
+     // screens >= 1440px ( lg ) 
+  }
+} */

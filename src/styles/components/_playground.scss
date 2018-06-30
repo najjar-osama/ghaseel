@@ -1,0 +1,29 @@
+.test {
+  width: 10rem;
+  height: 10rem;
+  background-color: blue;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  &::after {
+    content: " xs";
+  }
+  @media (min-device-width: $sm) {
+    background-color: tomato;
+    &::after {
+      content: " sm";
+    }
+  }
+  @media (min-device-width: $md) {
+    background-color: lightgreen;
+    &::after {
+      content: " md";
+    }
+  }
+  @media (min-device-width: $lg) {
+    background-color: mediumvioletred;
+    &::after {
+      content: " lg";
+    }
+  }
+}
