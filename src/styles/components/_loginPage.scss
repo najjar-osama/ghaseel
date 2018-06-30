@@ -1,0 +1,71 @@
+.login-form {
+  background-color: $black-transparent;
+  padding: 1.5 * $spaceBase;
+  @media (min-device-width: $sm) {
+    // screens < 720px ( sm )
+    padding: (3 * $spaceBase) (5 * $spaceBase);
+  }
+  @media (min-device-width: $md) {
+    // screens < 1440px ( md )
+    padding: (5 * $spaceBase) (7 * $spaceBase);
+  }
+  @media (min-device-width: $lg) {
+    // screens >= 1440px ( lg )
+    padding: (7 * $spaceBase) (9 * $spaceBase);
+  }
+}
+
+.logo-block {
+  align-items: center;
+  border: ($spaceBase / 4) solid #fff;
+  border-radius: $spaceBase;
+  display: table;
+  margin-bottom: 2 * $spaceBase;
+  padding: $spaceBase;
+}
+.logo-block__title {
+  //border-left: ($spaceBase / 2) solid #fff;
+  color: #fff;
+  display: table-cell;
+
+  font-size: 2.5rem;
+  padding: 0 0 0 ($spaceBase / 2);
+  transform: translateY(($spaceBase / 2));
+  transition: font-size 1s ease-in-out;
+  @media (min-device-width: $sm) {
+    // screens < 720px ( sm )
+    font-size: 2.7rem;
+  }
+  @media (min-device-width: $md) {
+    // screens < 1440px ( md )
+    font-size: 3rem;
+  }
+  @media (min-device-width: $lg) {
+    // screens >= 1440px ( lg )
+    font-size: 3.2rem;
+  }
+}
+
+.logo-block__logo {
+  background: url("../logo_64.png");
+  display: table-cell;
+  height: 64px;
+  width: 64px;
+}
+.login-form__input {
+  border: none;
+  color: blue;
+  height: 2 * $spaceBase;
+  margin-bottom: $spaceBase;
+  padding: ($spaceBase / 2);
+  width: 100%;
+}
+
+.login-form__submit {
+  background-color: #2d68ad;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 35px;
+  width: 100%;
+}

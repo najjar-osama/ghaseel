@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-//import AppRouter from "../src/router/AppRouter";
+import AppRouter from "../src/router/AppRouter";
 import App from "../src/App";
 import BubblesLoader from "../src/components/BubblesLoader";
 import PlayGround from "../src/components/PlayGround";
@@ -34,8 +34,7 @@ ReactDOM.render(<BubblesLoader />, document.getElementById("root"));
 setTimeout(() => {
   ReactDOM.render(
     <Provider store={store}>
-      <App />
-      {/* <AppRouter /> */}
+      <AppRouter />
     </Provider>,
     document.getElementById("root")
   );

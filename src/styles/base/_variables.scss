@@ -1,5 +1,6 @@
 /*** color palete ***/
 $dark-black: #222;
+$black-transparent: rgba(0, 0, 0, 0.75);
 $black: #444;
 $gray: #888;
 
@@ -8,3 +9,6 @@ $xsm: 320px;
 $sm: 480px;
 $md: 720px;
 $lg: 1440px;
+
+/*** spacing ***/
+$spaceBase: 15px;
