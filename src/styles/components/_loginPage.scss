@@ -19,7 +19,6 @@
   align-items: center;
   border: ($spaceBase / 4) solid #fff;
   border-radius: $spaceBase;
-  display: table;
   margin-bottom: 2 * $spaceBase;
   padding: $spaceBase;
   width: 100%;
@@ -27,11 +26,10 @@
 .logo-block__title {
   //border-left: ($spaceBase / 2) solid #fff;
   color: #fff;
-  display: table-cell;
-
   font-size: 2.5rem;
+  margin: 0;
   padding: 0 0 0 ($spaceBase / 2);
-  transform: translateY(($spaceBase / 2));
+  //transform: translateY(($spaceBase / 2));
   transition: font-size 1s ease-in-out;
   @media (min-device-width: $sm) {
     // screens < 720px ( sm )
@@ -48,9 +46,7 @@
 }
 
 .logo-block__logo {
-  background: url("../logo_64.png");
-  display: table-cell;
-  height: 64px;
+  height: auto;
   width: 64px;
 }
 .login-form__input {

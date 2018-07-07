@@ -2,12 +2,13 @@ import React from "react";
 import { history } from "../router/AppRouter";
 import { connect } from "react-redux";
 import { login } from "../actions/auth";
+import logo from "../ghaseel-logo.svg";
 export const LoginPage = props => (
   <div className="app-cover">
     <div className="main-container flex flex--center flex-dir--col text-center opacity-effect">
       <form className="login-form flex flex--center flex-dir--col shadow">
-        <div className="logo-block flex flex--center">
-          <div className="logo-block__logo" />
+        <div className="logo-block flex flex--center flex-dir--row">
+          <img className="logo-block__logo" src={logo} />
           <h1 className="logo-block__title">Ghaseel</h1>
         </div>
         <input
