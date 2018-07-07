@@ -3,6 +3,7 @@ import { history } from "../router/AppRouter";
 import { connect } from "react-redux";
 import { login } from "../actions/auth";
 import { Link } from "react-router-dom";
+import { auth, googleAuthProvider } from "../firebase/firebase";
 import logo from "../ghaseel-logo.svg";
 export const LoginPage = props => (
   <div className="app-cover">
@@ -33,6 +34,22 @@ export const LoginPage = props => (
             }}
           >
             Login
+          </button>
+          <button
+            className="login-form__submit"
+            onClick={e => {
+              e.preventDefault();
+              auth()
+                .signInWithPopup(googleAuthProvider)
+                .then(result => {
+                  if (result.user) {
+                    console.log(result.user.uid);
+                    history.push("/home");
+                  }
+                });
+            }}
+          >
+            +Google
           </button>
         </form>
         <div className="login-form__extra-links flex flex-dir--row flex--space-between ">

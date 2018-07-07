@@ -14,6 +14,10 @@ const conf = {
 };
 
 firebase.initializeApp(conf);
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+googleAuthProvider.addScope("profile");
+googleAuthProvider.addScope("email");
+const database = firebase.database;
+const auth = firebase.auth;
 
-export const database = firebase.database;
-export const auth = firebase.auth;
+export { database, auth, googleAuthProvider };
