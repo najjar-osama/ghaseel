@@ -16,7 +16,6 @@
 }
 
 .brand-link {
-  text-decoration: none;
 }
 .logo-block {
   align-items: center;
@@ -68,5 +67,10 @@
   color: #fff;
   cursor: pointer;
   height: 35px;
+  width: 100%;
+}
+
+.login-form__extra-links {
+  padding: $spaceBase 0 0 0;
   width: 100%;
 }

@@ -5,3 +5,13 @@
 .shadow {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
+
+.undecorated-link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.text-white {
+  color: #fff;
+}

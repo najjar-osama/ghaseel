@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: center;
 }
+.flex--space-between {
+  justify-content: space-between;
+}
 
 .flex-dir--col {
   flex-flow: column;
