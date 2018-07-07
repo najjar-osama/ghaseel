@@ -9,7 +9,7 @@ export const LoginPage = props => (
     <div className="main-container flex flex--center flex-dir--col text-center opacity-effect">
       <div className="login-form flex flex--center flex-dir--col shadow">
         <form className="flex flex--center flex-dir--col">
-          <Link to="/" className="undecorated-link">
+          <Link to="/" className="brand-link">
             <div className="logo-block flex flex--center flex-dir--row">
               <img className="logo-block__logo" src={logo} />
               <h1 className="logo-block__title">Ghaseel</h1>
