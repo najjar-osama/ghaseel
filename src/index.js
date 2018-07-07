@@ -3,10 +3,9 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import AppRouter from "../src/router/AppRouter";
-import App from "../src/App";
+//import App from "../src/App";
 import BubblesLoader from "../src/components/BubblesLoader";
-import PlayGround from "../src/components/PlayGround";
-
+//import PlayGround from "./components/PlayGround";
 import { database } from "./firebase/firebase";
 
 import "normalize.css";

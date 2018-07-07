@@ -11,7 +11,7 @@ export const LoginPage = props => (
         <form className="flex flex--center flex-dir--col">
           <Link to="/" className="brand-link">
             <div className="logo-block flex flex--center flex-dir--row">
-              <img className="logo-block__logo" src={logo} />
+              <img className="logo-block__logo" src={logo} alt="Ghaseel Logo" />
               <h1 className="logo-block__title">Ghaseel</h1>
             </div>
           </Link>
