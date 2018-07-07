@@ -21,6 +21,6 @@
   "start_url": "/",
   "homepage_url": "https://ghaseel.herokuapp.com",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#2d68ad",
   "background_color": "#ffffff"
 }
