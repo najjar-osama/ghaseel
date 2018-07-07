@@ -54,7 +54,8 @@
 }
 .login-form__input {
   border: none;
-  color: blue;
+  color: $blue;
+  outline-color: $blue;
   height: 2 * $spaceBase;
   margin-bottom: $spaceBase;
   padding: ($spaceBase / 2);
@@ -62,7 +63,7 @@
 }
 
 .login-form__submit {
-  background-color: #2d68ad;
+  background-color: $blue;
   border: none;
   color: #fff;
   cursor: pointer;
