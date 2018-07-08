@@ -1,15 +1,14 @@
 import React from "react";
 import { history } from "../router/AppRouter";
 import { connect } from "react-redux";
-import { login } from "../actions/auth";
+import { startLogin, login } from "../actions/auth";
 import { Link } from "react-router-dom";
-import { auth, googleAuthProvider } from "../firebase/firebase";
 import logo from "../ghaseel-logo.svg";
-export const LoginPage = props => (
+export const LoginPage = ({ startLogin }) => (
   <div className="app-cover">
     <div className="main-container flex flex--center flex-dir--col text-center opacity-effect">
       <div className="login-form flex flex--center flex-dir--col shadow">
-        <form className="flex flex--center flex-dir--col">
+        <div className="flex flex--center flex-dir--col">
           <Link to="/" className="brand-link">
             <div className="logo-block flex flex--center flex-dir--row">
               <img className="logo-block__logo" src={logo} alt="Ghaseel Logo" />
@@ -26,7 +25,7 @@ export const LoginPage = props => (
             className="login-form__input"
             placeholder="enter your password"
           />
-          <button
+          {/*           <button
             className="login-form__submit"
             onClick={() => {
               props.login("123abc");
@@ -34,24 +33,11 @@ export const LoginPage = props => (
             }}
           >
             Login
+          </button> */}
+          <button className="login-form__submit" onClick={startLogin}>
+            Login with <strong>+</strong>Google
           </button>
-          <button
-            className="login-form__submit"
-            onClick={e => {
-              e.preventDefault();
-              auth()
-                .signInWithPopup(googleAuthProvider)
-                .then(result => {
-                  if (result.user) {
-                    console.log(result.user.uid);
-                    history.push("/home");
-                  }
-                });
-            }}
-          >
-            +Google
-          </button>
-        </form>
+        </div>
         <div className="login-form__extra-links flex flex-dir--row flex--space-between ">
           <Link to="/signup" className="undecorated-link text-white">
             <span>Signup</span>
@@ -66,7 +52,7 @@ export const LoginPage = props => (
 );
 
 const mapDispatchToProps = dispatch => ({
-  login: uid => dispatch(login(uid))
+  startLogin: () => dispatch(startLogin())
 });
 
 export default connect(

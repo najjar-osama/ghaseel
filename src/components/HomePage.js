@@ -1,23 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { history } from "../router/AppRouter";
-import { logout } from "../actions/auth";
-export const HomePage = props => (
-  <div>
-    <h1>Home Page!!</h1>
-    <button
-      onClick={() => {
-        props.logout();
-        history.push("/");
-      }}
-    >
-      Logout
-    </button>
+import { startLogout } from "../actions/auth";
+export const HomePage = ({ startLogout }) => (
+  <div className="main-container flex flex--center flex-dir--col">
+    <h1>Welcome!</h1>
+    <button onClick={startLogout}>Logout</button>
   </div>
 );
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  startLogout: () => dispatch(startLogout())
 });
 
 export default connect(

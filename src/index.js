@@ -2,11 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-import AppRouter from "../src/router/AppRouter";
+import AppRouter from "./router/AppRouter";
+import { history } from "./router/AppRouter";
+import { login, logout } from "./actions/auth";
 //import App from "../src/App";
-import BubblesLoader from "../src/components/BubblesLoader";
+import BubblesLoader from "./components/BubblesLoader";
 //import PlayGround from "./components/PlayGround";
-import { database } from "./firebase/firebase";
+import { auth, database } from "./firebase/firebase";
 
 import "normalize.css";
 import "./styles/styles.css";
@@ -38,5 +40,15 @@ setTimeout(() => {
     document.getElementById("root")
   );
 }, parseInt(process.env.REACT_APP_LOADER_TIME, 10));
+
+auth().onAuthStateChanged(user => {
+  if (user) {
+    store.dispatch(login(user.uid));
+    history.push("/home");
+  } else {
+    store.dispatch(logout());
+    history.push("/");
+  }
+});
 
 registerServiceWorker();
