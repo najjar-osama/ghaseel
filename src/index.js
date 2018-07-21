@@ -31,21 +31,38 @@ database()
   });
 
 const store = configureStore();
-ReactDOM.render(<BubblesLoader />, document.getElementById("root"));
-setTimeout(() => {
+//ReactDOM.render(<BubblesLoader />, document.getElementById("root"));
+/* setTimeout(() => {
   ReactDOM.render(
     <Provider store={store}>
       <AppRouter />
     </Provider>,
     document.getElementById("root")
   );
-}, parseInt(process.env.REACT_APP_LOADER_TIME, 10));
+}, parseInt(process.env.REACT_APP_LOADER_TIME, 10)); */
+
+let appHasRendered = false;
+const renderApp = () => {
+  if (!appHasRendered) {
+    ReactDOM.render(
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>,
+      document.getElementById("root")
+    );
+    appHasRendered = true;
+  }
+};
 
 auth().onAuthStateChanged(user => {
   if (user) {
+    renderApp();
     store.dispatch(login(user.uid));
-    history.push("/home");
+    if (history.location.pathname === "/") {
+      history.push("/home");
+    }
   } else {
+    renderApp();
     store.dispatch(logout());
     history.push("/");
   }

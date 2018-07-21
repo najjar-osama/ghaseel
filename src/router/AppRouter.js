@@ -1,9 +1,7 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
-//import { AnimatedSwitch } from "react-router-transition";
 import { createBrowserHistory } from "history";
 import PrivateRoute from "./PrivateRoute";
-//import { TransitionGroup, CSSTransition } from "react-transition-group";
 import HomePage from "../components/HomePage";
 import LoginPage from "../components/LoginPage";
 
