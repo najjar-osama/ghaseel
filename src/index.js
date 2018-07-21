@@ -57,7 +57,7 @@ const renderApp = () => {
 auth().onAuthStateChanged(user => {
   if (user) {
     renderApp();
-    store.dispatch(login(user.uid));
+    store.dispatch(login(user));
     if (history.location.pathname === "/") {
       history.push("/home");
     }
