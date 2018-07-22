@@ -1,15 +1,15 @@
 @mixin navbar-height {
-  height: 45px;
+  height: 55px;
   @media (min-device-width: $sm) {
     // screens < 720px ( sm )
-    height: 60px;
+    height: 65px;
   }
 }
 
 @mixin container-with-navbar {
-  padding-top: 45px;
+  padding-top: 55px;
   @media (min-device-width: $sm) {
     // screens < 720px ( sm )
-    padding-top: 60px;
+    padding-top: 65px;
   }
 }

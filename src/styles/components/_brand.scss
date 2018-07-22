@@ -4,3 +4,17 @@
   height: 40px;
   width: auto;
 }
+
+.brand-logo__link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.brand-logo__text {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
