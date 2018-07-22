@@ -1,4 +1,5 @@
 @import "./base/variables";
+@import "./base/mixins";
 @import "./base/base";
 @import "./base/layout";
 @import "./base/utils";
@@ -6,3 +7,4 @@
 @import "./components/bubbles-loader";
 @import "./components/playground";
 @import "./components/loginPage";
+@import "./components/nav-bar";

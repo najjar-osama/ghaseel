@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.flex--center-v {
+  align-items: center;
+}
 .flex--space-between {
   justify-content: space-between;
 }
@@ -18,4 +22,5 @@
 }
 .main-container {
   min-height: 100vh;
+  @include container-with-navbar;
 }
