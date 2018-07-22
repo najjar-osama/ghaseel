@@ -1,8 +1,13 @@
 .brand-logo {
 }
 .brand-logo__image {
-  height: 40px;
+  height: 30px;
+  transition: height 1s ease-in-out;
   width: auto;
+  @media (min-device-width: $sm) {
+    // screens < 720px ( sm )
+    height: 40px;
+  }
 }
 
 .brand-logo__link {
@@ -14,8 +19,13 @@
 
 .brand-logo__text {
   color: #fff;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1;
   margin-left: 5px;
+  transition: font-size 1s ease-in-out;
+  @media (min-device-width: $sm) {
+    // screens < 720px ( sm )
+    font-size: 30px;
+  }
 }
