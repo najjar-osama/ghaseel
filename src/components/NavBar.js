@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Brand from "./Brand";
 
 export const NavBar = () => (
   <nav className="nav-bar flex flex--center-v shadow">
-    <div>I am nav bar!</div>
+    <Brand />
   </nav>
 );
 

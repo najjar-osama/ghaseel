@@ -2,6 +2,7 @@
   background: $blue;
   color: #fff;
   position: fixed;
+  padding: $spaceBase;
   transition: height 1s ease-in-out;
   width: 100%;
   @include navbar-height;
