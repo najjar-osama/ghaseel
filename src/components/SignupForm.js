@@ -31,7 +31,7 @@ class SignupForm extends React.Component {
   }
   render(){
       return(
-        <form onSubmit={}>
+        <form onSubmit={this.handleFormSubmit}>
             <label htmlFor="email" aria-label="email"></label>
             <input type="text" name="email" value={this.state.email} onChange={this.handleEmailChange}/>
             <label htmlFor="password" aria-label="password"></label>
