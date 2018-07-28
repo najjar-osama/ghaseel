@@ -6,7 +6,6 @@ import HomePage from "../components/HomePage";
 import LoginPage from "../components/LoginPage";
 import SignupPage from "../components/SignupPage";
 import ProfilePage from "../components/ProfilePage";
-import LoginForm from "../components/LoginForm";
 import NotFound from "../components/NotFound";
 
 export const history = createBrowserHistory();
@@ -15,7 +14,6 @@ const AppRouter = () => (
   <Router history={history}>
     <Switch>
       <Route path="/" exact={true} component={LoginPage} />
-      <Route path="/loginform" component={LoginForm} />
       <Route path="/signup" component={SignupPage} />
       <PrivateRoute path="/home" component={HomePage} />
       <PrivateRoute path="/profile" component={ProfilePage} />
