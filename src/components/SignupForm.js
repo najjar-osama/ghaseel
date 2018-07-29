@@ -63,8 +63,16 @@ class SignupForm extends React.Component {
     };
     auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(user => {
-        console.log(user);
+      .then(() => {
+        const newUser = auth().currentUser;
+        newUser
+          .updateProfile({
+            displayName: "Johne Doe",
+            photoURL: "test"
+          })
+          .then(() => {
+            newUser.sendEmailVerification();
+          });
       })
       .catch(error => {
         console.log(error);

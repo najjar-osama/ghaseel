@@ -56,8 +56,16 @@ const renderApp = () => {
 
 auth().onAuthStateChanged(user => {
   if (user) {
+    console.log(user.metadata);
+    const loggedInUser = {
+      uid: user.uid,
+      email: user.email,
+      emailVerfied: user.emailVerified,
+      displayName: user.displayName,
+      photoURL: user.photoURL
+    };
     renderApp();
-    store.dispatch(login(user));
+    store.dispatch(login(loggedInUser));
     if (
       history.location.pathname === "/" ||
       history.location.pathname === "/signup"
