@@ -1,4 +1,5 @@
 import React from "react";
+import { auth } from "../firebase/firebase";
 import isEmail from "validator/lib/isEmail";
 
 class SignupForm extends React.Component {
@@ -33,7 +34,8 @@ class SignupForm extends React.Component {
   }
   handleFormSubmit(event) {
     event.preventDefault();
-    if (!isEmail(event.target.email.value)) {
+    const email = event.target.email.value;
+    if (!isEmail(email)) {
       const errorEmailNextState = {
         hasError: true,
         errorMessage:
@@ -59,7 +61,15 @@ class SignupForm extends React.Component {
       hasError: false,
       errorMessage: ""
     };
-    this.setState(
+    auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        console.log(user);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    /* this.setState(
       () => submitNextState,
       () => {
         // redirect to a protected page 'cause at this point user is authenticated
@@ -74,7 +84,7 @@ class SignupForm extends React.Component {
           }));
         }, 3000);
       }
-    );
+    ); */
   }
   render() {
     const loader = <div>Submitting..</div>;

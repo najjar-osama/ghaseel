@@ -58,7 +58,10 @@ auth().onAuthStateChanged(user => {
   if (user) {
     renderApp();
     store.dispatch(login(user));
-    if (history.location.pathname === "/") {
+    if (
+      history.location.pathname === "/" ||
+      history.location.pathname === "/signup"
+    ) {
       history.push("/home");
     }
   } else {
