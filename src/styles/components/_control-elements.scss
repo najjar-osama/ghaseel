@@ -1,0 +1,62 @@
+.form {
+  margin: 0 0 3rem 0;
+  width: 100%;
+  transition: height 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+.form__block {
+  display: block;
+  margin: 0 0 1.5rem 0;
+}
+.form__block--inline {
+}
+.form__label {
+  color: $blue;
+}
+
+.form__text-input {
+  height: 2.5rem;
+  line-height: 1;
+  outline: none;
+  padding: 0 0.5rem;
+  width: 100%;
+}
+.button {
+  border: 0;
+  background: $blue;
+  color: #fff;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  &:hover {
+    background: darken($blue, 10%);
+  }
+}
+
+.button--default {
+  background: $blue;
+  &:hover {
+    background: darken($blue, 10%);
+  }
+}
+.button--danger {
+  background: $danger-color;
+}
+.form__feedback-block {
+  padding: 1rem 0;
+}
+.feedback-message {
+}
+.feedback-message--success {
+}
+.feedback-message--warning {
+}
+.feedback-message--error {
+  color: $danger-color;
+}
+
+.form__actions-block {
+  border-top: 0.3rem solid $blue;
+  margin: 0 0 1.5rem 0;
+  padding: 1rem 0 0 0;
+}

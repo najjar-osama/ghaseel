@@ -97,34 +97,60 @@ class SignupForm extends React.Component {
   render() {
     const loader = <div>Submitting..</div>;
     const form = (
-      <form onSubmit={this.handleFormSubmit}>
-        <label htmlFor="email" aria-label="email" />
-        <input
-          type="text"
-          name="email"
-          value={this.state.email}
-          onChange={this.handleEmailChange}
-        />
-        <label htmlFor="password" aria-label="password" />
-        <input
-          type="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handlePasswordChange}
-        />
-        <label htmlFor="password" aria-label="confirm password" />
-        <input
-          type="password"
-          name="confirmPassword"
-          value={this.state.confirmPassword}
-          onChange={this.handleConfirmPasswordChange}
-        />
+      <form className="form" onSubmit={this.handleFormSubmit}>
+        <div className="form__block">
+          <label className="form__label" htmlFor="email" aria-label="email" />
+          <input
+            className="form__text-input"
+            type="text"
+            name="email"
+            placeholder="your email address.."
+            value={this.state.email}
+            onChange={this.handleEmailChange}
+          />
+        </div>
+        <div className="form__block">
+          <label
+            className="form__label"
+            htmlFor="password"
+            aria-label="password"
+          />
+          <input
+            className="form__text-input"
+            type="password"
+            name="password"
+            placeholder="password.."
+            value={this.state.password}
+            onChange={this.handlePasswordChange}
+          />
+        </div>
+        <div className="form__block">
+          <label
+            className="form__label"
+            htmlFor="password"
+            aria-label="confirm password"
+          />
+          <input
+            className="form__text-input"
+            type="password"
+            name="confirmPassword"
+            placeholder="confirm your pssword.."
+            value={this.state.confirmPassword}
+            onChange={this.handleConfirmPasswordChange}
+          />
+        </div>
         {this.state.hasError && (
-          <div>
-            <p>{this.state.errorMessage}</p>
+          <div className="form__feedback-block">
+            <p className="feedback-message--error feedback-message">
+              {this.state.errorMessage}
+            </p>
           </div>
         )}
-        <button type="submit">Signup</button>
+        <div className="form__actions-block">
+          <button className="button button--default " type="submit">
+            Signup
+          </button>
+        </div>
       </form>
     );
     return this.state.formSubmitted ? loader : form;
