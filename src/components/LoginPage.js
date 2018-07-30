@@ -1,11 +1,9 @@
 import React from "react";
-import { history } from "../router/AppRouter";
 import LoginForm from "./LoginForm";
-import { connect } from "react-redux";
-import { startLogin, login } from "../actions/auth";
 import { Link } from "react-router-dom";
 import logo from "../ghaseel-logo.svg";
-export const LoginPage = ({ startLogin }) => (
+
+export const LoginPage = ({}) => (
   <div className="app-cover">
     <div className="main-container flex flex--center flex-dir--col text-center opacity-effect">
       <div className="login-form flex flex--center flex-dir--col shadow">
@@ -31,11 +29,4 @@ export const LoginPage = ({ startLogin }) => (
   </div>
 );
 
-const mapDispatchToProps = dispatch => ({
-  startLogin: () => dispatch(startLogin())
-});
-
-export default connect(
-  undefined,
-  mapDispatchToProps
-)(LoginPage);
+export default LoginPage;

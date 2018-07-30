@@ -16,7 +16,7 @@
 }
 
 .form__text-input {
-  height: 2.5rem;
+  height: 3.5rem;
   line-height: 1;
   outline: none;
   padding: 0 0.5rem;
@@ -42,6 +42,10 @@
 .button--danger {
   background: $danger-color;
 }
+.button--block {
+  display: block;
+  width: 100%;
+}
 .form__feedback-block {
   padding: 1rem 0;
 }
@@ -59,4 +63,7 @@
   border-top: 0.3rem solid $blue;
   margin: 0 0 1.5rem 0;
   padding: 1rem 0 0 0;
+  .button {
+    margin-bottom: 1rem;
+  }
 }

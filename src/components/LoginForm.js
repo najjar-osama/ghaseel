@@ -1,6 +1,7 @@
 import React from "react";
 import { auth } from "../firebase/firebase";
 import isEmail from "validator/lib/isEmail";
+import { startLogin } from "../actions/auth";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class LoginForm extends React.Component {
     };
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleLoginWithGoogle = this.handleLoginWithGoogle.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
   handleEmailChange(event) {
@@ -24,6 +26,10 @@ class LoginForm extends React.Component {
   handlePasswordChange(event) {
     const nextState = { password: event.target.value };
     this.setState(() => nextState);
+  }
+  handleLoginWithGoogle(event) {
+    event.preventDefault();
+    startLogin()();
   }
   handleFormSubmit(event) {
     event.preventDefault();
@@ -93,8 +99,17 @@ class LoginForm extends React.Component {
           </div>
         )}
         <div className="form__actions-block">
-          <button className="button button--default " type="submit">
+          <button
+            className="button button--default button--block"
+            type="submit"
+          >
             Login
+          </button>
+          <button
+            className="button button--default button--block"
+            onClick={this.handleLoginWithGoogle}
+          >
+            <b>+</b>Google
           </button>
         </div>
       </form>
