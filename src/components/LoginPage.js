@@ -1,5 +1,6 @@
 import React from "react";
 import { history } from "../router/AppRouter";
+import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import { startLogin, login } from "../actions/auth";
 import { Link } from "react-router-dom";
@@ -15,28 +16,7 @@ export const LoginPage = ({ startLogin }) => (
               <h1 className="logo-block__title">Ghaseel</h1>
             </div>
           </Link>
-          <input
-            type="text"
-            className="login-form__input"
-            placeholder="enter your email"
-          />
-          <input
-            type="password"
-            className="login-form__input"
-            placeholder="enter your password"
-          />
-          {/*           <button
-            className="login-form__submit"
-            onClick={() => {
-              props.login("123abc");
-              history.push("/home");
-            }}
-          >
-            Login
-          </button> */}
-          <button className="login-form__submit" onClick={startLogin}>
-            Login with <strong>+</strong>Google
-          </button>
+          <LoginForm />
         </div>
         <div className="login-form__extra-links flex flex-dir--row flex--space-between ">
           <Link to="/signup" className="undecorated-link text-white">

@@ -1,4 +1,6 @@
 import React from "react";
+import { auth } from "../firebase/firebase";
+import isEmail from "validator/lib/isEmail";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -25,30 +27,76 @@ class LoginForm extends React.Component {
   }
   handleFormSubmit(event) {
     event.preventDefault();
-    const loginCredentials = {
-      email: event.target.email.value,
-      password: event.target.password.value
-    };
-    //make api call
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    if (!isEmail(email)) {
+      const nextState = {
+        hasError: true,
+        errorMessage: "Invalid email. Please, enter a valid email."
+      };
+      this.setState(() => nextState);
+      return;
+    }
+    if (!password) {
+      const nextState = {
+        hasError: true,
+        errorMessage: "Invalid password. Please, enter a valid password."
+      };
+
+      this.setState(() => nextState);
+      return;
+    }
+
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(user => {})
+      .catch(error => {
+        this.setState(() => {
+          hasError: true;
+          errorMessage: error.message;
+        });
+      });
   }
   render() {
     return (
       <form onSubmit={this.handleFormSubmit}>
-        <label htmlFor="email" aria-label="email" />
-        <input
-          type="text"
-          name="email"
-          value={this.state.email}
-          onChange={this.handleEmailChange}
-        />
-        <label htmlFor="password" aria-label="password" />
-        <input
-          type="password"
-          name="password"
-          onChange={this.handlePasswordChange}
-        />
-        <div>{this.state.hasError && <p>{this.state.errorMessage}</p>}</div>
-        <button type="submit">Login</button>
+        <div className="form__block">
+          <label className="form__label" htmlFor="email" aria-label="email" />
+          <input
+            className="form__text-input"
+            type="text"
+            name="email"
+            placeholder="your email.."
+            value={this.state.email}
+            onChange={this.handleEmailChange}
+          />
+        </div>
+        <div className="form__block">
+          <label
+            className="form__label"
+            htmlFor="password"
+            aria-label="password"
+          />
+          <input
+            className="form__text-input"
+            type="password"
+            name="password"
+            placeholder="password"
+            onChange={this.handlePasswordChange}
+          />
+        </div>
+        {this.state.hasError && (
+          <div className="form__feedback-block">
+            <p className="feedback-message--error feedback-message">
+              {this.state.errorMessage}
+            </p>
+          </div>
+        )}
+        <div className="form__actions-block">
+          <button className="button button--default " type="submit">
+            Login
+          </button>
+        </div>
       </form>
     );
   }
