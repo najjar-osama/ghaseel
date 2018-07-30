@@ -76,8 +76,6 @@ class SignupForm extends React.Component {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(data => {
-        console.log(data);
-
         this._resetForm();
       })
       .catch(error => {
