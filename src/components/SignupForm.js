@@ -1,6 +1,7 @@
 import React from "react";
 import { auth } from "../firebase/firebase";
 import isEmail from "validator/lib/isEmail";
+import { CONSTANTS } from "@firebase/util";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class SignupForm extends React.Component {
     this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(
       this
     );
+    this._resetForm = this._resetForm.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
   handleEmailChange(event) {
@@ -32,27 +34,37 @@ class SignupForm extends React.Component {
     const nextState = { confirmPassword: event.target.value };
     this.setState(() => nextState);
   }
+  _resetForm() {
+    const nextState = {
+      email: "",
+      password: "",
+      confirmPassword: "",
+      hasError: false,
+      errorMessage: "",
+      formSubmitted: false
+    };
+    this.setState(() => nextState);
+  }
   handleFormSubmit(event) {
     event.preventDefault();
     const email = event.target.email.value;
     if (!isEmail(email)) {
-      const errorEmailNextState = {
+      const nextState = {
         hasError: true,
-        errorMessage:
-          "invalid email address, please enter a valid email address"
+        errorMessage: "Invalid email. Please, enter a valid email."
       };
-      this.setState(() => errorEmailNextState);
+      this.setState(() => nextState);
       return;
     }
     const password = event.target.password.value.trim() || "";
     const confirmPassword = event.target.confirmPassword.value.trim() || "";
     const passwordsMatch = password === confirmPassword;
     if (!passwordsMatch) {
-      const errorPasswordsNextState = {
+      const nextState = {
         hasError: true,
-        errorMessage: "passwords don't match, please renter your passwords."
+        errorMessage: "Passwords don't match, Please renter your passwords."
       };
-      this.setState(() => errorPasswordsNextState);
+      this.setState(() => nextState);
       return;
     }
 
@@ -63,36 +75,18 @@ class SignupForm extends React.Component {
     };
     auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        const newUser = auth().currentUser;
-        newUser
-          .updateProfile({
-            displayName: "Johne Doe",
-            photoURL: "test"
-          })
-          .then(() => {
-            newUser.sendEmailVerification();
-          });
+      .then(data => {
+        console.log(data);
+
+        this._resetForm();
       })
       .catch(error => {
-        console.log(error);
+        const nextState = {
+          hasError: true,
+          errorMessage: `${error.message}.`
+        };
+        this.setState(() => nextState);
       });
-    /* this.setState(
-      () => submitNextState,
-      () => {
-        // redirect to a protected page 'cause at this point user is authenticated
-        setTimeout(() => {
-          this.setState(() => ({
-            formSubmitted: false,
-            email: "",
-            password: "",
-            confirmPassword: "",
-            hasError: false,
-            errorMessage: ""
-          }));
-        }, 3000);
-      }
-    ); */
   }
   render() {
     const loader = <div>Submitting..</div>;

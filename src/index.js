@@ -56,21 +56,12 @@ const renderApp = () => {
 
 auth().onAuthStateChanged(user => {
   if (user) {
-    console.log(user.metadata);
-    const loggedInUser = {
-      uid: user.uid,
-      email: user.email,
-      emailVerfied: user.emailVerified,
-      displayName: user.displayName,
-      photoURL: user.photoURL
-    };
     renderApp();
-    store.dispatch(login(loggedInUser));
-    if (
-      history.location.pathname === "/" ||
-      history.location.pathname === "/signup"
-    ) {
+    store.dispatch(login(user));
+    if (history.location.pathname === "/") {
       history.push("/home");
+    } else if (history.location.pathname === "/signup") {
+      history.push("/account-settings");
     }
   } else {
     renderApp();
