@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleLoginWithGoogle = this.handleLoginWithGoogle.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleLoginWithFacebook = this.handleLoginWithFacebook.bind(this);
+    this.handleLoginWithFacebook =  this.handleLoginWithFacebook.bind(this);
   }
   handleEmailChange(event) {
     const nextState = {
