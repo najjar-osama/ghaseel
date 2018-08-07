@@ -1,7 +1,7 @@
 import React from "react";
 import { auth } from "../firebase/firebase";
 import isEmail from "validator/lib/isEmail";
-import { startLogin } from "../actions/auth";
+import { startLoginWithGoogle , startLoginWithFacebook } from "../actions/auth";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleLoginWithGoogle = this.handleLoginWithGoogle.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleLoginWithFacebook = this.handleLoginWithFacebook.bind(this);
   }
   handleEmailChange(event) {
     const nextState = {
@@ -29,7 +30,11 @@ class LoginForm extends React.Component {
   }
   handleLoginWithGoogle(event) {
     event.preventDefault();
-    startLogin()();
+    startLoginWithGoogle()();
+  }
+  handleLoginWithFacebook(event){
+    event.preventDefault();
+    startLoginWithFacebook()();
   }
   handleFormSubmit(event) {
     event.preventDefault();
@@ -110,6 +115,12 @@ class LoginForm extends React.Component {
             onClick={this.handleLoginWithGoogle}
           >
             <b>+</b>Google
+          </button>
+          <button
+            className="button button--default button--block"
+            onClick={this.handleLoginWithFacebook}
+          >
+            Facebook
           </button>
         </div>
       </form>

@@ -9,6 +9,7 @@ import { login, logout } from "./actions/auth";
 import BubblesLoader from "./components/BubblesLoader";
 //import PlayGround from "./components/PlayGround";
 import { auth, database } from "./firebase/firebase";
+//import { facebook , fbAsyncInit} from "./firebase/facebook";
 
 import "normalize.css";
 import "./styles/styles.css";
@@ -69,5 +70,7 @@ auth().onAuthStateChanged(user => {
     history.push("/");
   }
 });
+
+
 
 registerServiceWorker();

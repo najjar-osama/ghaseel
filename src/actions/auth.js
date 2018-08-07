@@ -1,5 +1,5 @@
 import * as actions from "./actions";
-import { auth, googleAuthProvider } from "../firebase/firebase";
+import { auth, googleAuthProvider,facebookAuthProvider } from "../firebase/firebase";
 
 export const login = ({
   uid,
@@ -15,10 +15,16 @@ export const login = ({
   emailVerified,
   photoURL
 });
-export const startLogin = () => {
+export const startLoginWithGoogle = () => {
   return () => {
     return auth().signInWithPopup(googleAuthProvider);
   };
+};
+
+export const startLoginWithFacebook = () =>{
+  return () =>{
+    return auth().signInWithPopup(facebookAuthProvider);
+  }
 };
 export const logout = () => ({
   type: actions.LOGOUT
