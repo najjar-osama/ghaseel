@@ -1,5 +1,6 @@
 .login-form {
   background-color: $black-transparent;
+  box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.5);
   padding: 1.5 * $spaceBase;
   @media (min-device-width: $sm) {
     // screens < 720px ( sm )
@@ -20,7 +21,6 @@
 }
 .logo-block {
   align-items: center;
-  border: ($spaceBase / 4) solid #fff;
   border-radius: $spaceBase;
   margin-bottom: 2 * $spaceBase;
   padding: $spaceBase;
